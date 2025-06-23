@@ -6,11 +6,15 @@ Reverse Engineering of Yootech Wireless Charger
 - **U1**: CVSMicro IC: `CV90330` `2135X`
   - [datasheet](https://static2.xunxiang.site/uploads/sites/547/2022/06/c5802f62f9b19c7a5d5f58fb09c67df9.pdf)
     - [cpu datasheet](https://www.nuvoton.com/resource-files/DS_MS51_8K_Series_EN_Rev1.00.pdf)
+  - [Product Description](http://www.chipsvision.com.cn/en/product/82.html)
 - **Q1** and **Q2**: MOSFET `Vs` `3622DE` `871J36`
   - [datasheet](https://www.vgsemi.com/upload/attachment/goods/VS3622DE.pdf)
-- Test Pads: `D-`, `D+`, `CUR`, `CODE1`, `CODE2`
+- Test Pads:
+  - USB: `D-`, `D+`
+  - U1: `CUR`, `CODE1`, `CODE2`
 - **U8**: _unknown IC_
 - **J3**: 4-pin header, looks like programming port / debug?
+  - Likely connects to U1 MCLK/MDAT
 - **J1**: USB-C power ... and _data_?
 - **U2**: Voltage Regulator `6239A` `2135 / 50`
   - [datasheet](https://static.chipdip.ru/lib/727/DOC043727527.pdf)
@@ -21,6 +25,7 @@ Reverse Engineering of Yootech Wireless Charger
 - 16kB non-volatile memory
 - 1T8051 CPU
 - QC/SCP/Phy & Controller, connected to `D+` and `D-`
+- MCLK/MDAT connected to 4-pin header "programming port"
 ### Pin Descriptions
 | Pin No. | Name | Description |
 |---------|------|-------------|
@@ -29,8 +34,8 @@ Reverse Engineering of Yootech Wireless Charger
 | 3       |  DP  | USB D+ interface |
 | 4       |  DM  | USB D+ interface |
 | 5       | VSS  | Ground      |
-| 6       | MCLK | Emulation port clock |
-| 7       | MDAT | Emulation port data |
+| **6**       | **MCLK** | **Emulation port clock** |
+| **7**       | **MDAT** | **Emulation port data** |
 | 8       | P01  | GPIO/External Interrupt |
 | 9       | P02  | GPIO/Serial 0 tx data |
 | 10      | P03  | GPIO        |
