@@ -62,6 +62,13 @@ Programmable (IAP) means whole APROM can be use as Data Flash
   – Additional 1K Bytes on-chip auxiliary RAM (XRAM) accessed by MOVX instruction.
 - Potentially useful open source [8051 Emulator](https://github.com/jarikomppa/emu8051)
 
+## Unpowered continuitu testing
+- Verified **J3** header connections:
+  - 0 PWR (?V)
+  - 1 GND
+  - 2 MDAT
+  - 3 MCLK
+- 
 
 ## Sources
 1. [Amazon Prodct Page](https://www.amazon.com/Wireless-Qi-Certified-Charging-Compatible-Qi-Enabled/dp/B079KZ49PJ)
