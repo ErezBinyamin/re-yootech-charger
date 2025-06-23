@@ -1,5 +1,5 @@
 # re-yootech-charger
-Reverse Engineering of Yootech Wireless Charger 
+Reverse Engineering of Yootech Wireless Charger FCC ID: [2AOSUF500-330](https://fccid.io/2AOSUF500-330)
 ![Yootech Wireless Charger ](https://m.media-amazon.com/images/I/61oIAKY9s1L._AC_SL1500_.jpg)
 ## PCB POI's
 - PCB Serial Number: `TX-F500-330-V11`, `2021-11-11`
@@ -66,3 +66,4 @@ Programmable (IAP) means whole APROM can be use as Data Flash
 ## Sources
 1. [Amazon Prodct Page](https://www.amazon.com/Wireless-Qi-Certified-Charging-Compatible-Qi-Enabled/dp/B079KZ49PJ)
 2. [Yootech Product Page](https://yootech.net/services/)
+3. fccid.io [resources](https://fccid.io/2AOSUF500-330)
