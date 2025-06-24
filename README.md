@@ -70,6 +70,9 @@ Programmable (IAP) means whole APROM can be use as Data Flash
   - 1 GND
   - 2 MDAT to **U1:7**
   - 3 MCLK to **U1:6**
+ 
+## Debugger connection
+Will likely need [NU-LINK-PRO/](https://www.digikey.com/en/products/detail/nuvoton-technology-corporation/NU-LINK-PRO/3065247) to connect/debug 8501 within the CV90331. Hardware has been ordered.
 
 ## Sources
 1. [Amazon Prodct Page](https://www.amazon.com/Wireless-Qi-Certified-Charging-Compatible-Qi-Enabled/dp/B079KZ49PJ)
