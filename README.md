@@ -26,6 +26,8 @@ Reverse Engineering of Yootech Wireless Charger FCC ID: [2AOSUF500-330](https://
 - 1T8051 CPU
 - QC/SCP/Phy & Controller, connected to `D+` and `D-`
 - MCLK/MDAT connected to 4-pin header "programming port"
+- [CV90331 Datasheet](https://static2.xunxiang.site/uploads/sites/547/2022/06/c5802f62f9b19c7a5d5f58fb09c67df9.pdf)
+- [jlpcb product page](https://jlcpcb.com/partdetail/-CV90331/C9900001993)
 ### Pin Descriptions
 | Pin No. | Name | Description |
 |---------|------|-------------|
