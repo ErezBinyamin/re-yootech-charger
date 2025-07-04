@@ -110,6 +110,30 @@ Installed `nuvoprog2` and ran command: `~/go/bin/nuvoprog2 -v devices` when conn
 | Result             | Status/Feature Bitmap          | 0x2F   | 8      | `cbd1cbf6ebef46ee`   | Internal status flags              |
 | Footer             | Debugger Config/Temp           | 0x37   | 9      | `56807380a821711070` | Unknown, may include sensor/flags  |
 
+## USB D+ and D- analysis
+When plugging in USB charger ran `dmesg`
+```
+[ 6253.199750] usb 1-9: device descriptor read/64, error -71
+[ 6253.422750] usb 1-9: device descriptor read/64, error -71
+[ 6253.645713] usb 1-9: new full-speed USB device number 17 using xhci_hcd
+[ 6253.760558] usb 1-9: device descriptor read/64, error -71
+[ 6253.981743] usb 1-9: device descriptor read/64, error -71
+[ 6254.083922] usb usb1-port9: attempt power cycle
+[ 6254.463762] usb 1-9: new full-speed USB device number 18 using xhci_hcd
+[ 6254.463974] usb 1-9: Device not responding to setup address.
+[ 6254.667905] usb 1-9: Device not responding to setup address.
+[ 6254.875780] usb 1-9: device not accepting address 18, error -71
+[ 6254.875897] usb 1-9: WARN: invalid context state for evaluate context command.
+[ 6254.989659] usb 1-9: new full-speed USB device number 19 using xhci_hcd
+[ 6254.989864] usb 1-9: Device not responding to setup address.
+[ 6255.195950] usb 1-9: Device not responding to setup address.
+[ 6255.403740] usb 1-9: device not accepting address 19, error -71
+[ 6255.403873] usb 1-9: WARN: invalid context state for evaluate context command.
+[ 6255.403963] usb usb1-port9: unable to enumerate USB device
+```
+
+## Salea D+ and D-
+`TODO`
 
 ## Sources
 1. [Amazon Prodct Page](https://www.amazon.com/Wireless-Qi-Certified-Charging-Compatible-Qi-Enabled/dp/B079KZ49PJ)
