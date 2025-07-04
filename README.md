@@ -84,7 +84,7 @@ Will likely need [NU-LINK-PRO/](https://www.digikey.com/en/products/detail/nuvot
 [ ] VCC  -> VDD
 ```
 ### Output
-Installed `nuvoprog2` and ran command: `~/go/bin/nuvoprog2 -v devices` when connected to PCB
+Installed `nuvoprog2` and ran command: `~/go/bin/nuvoprog2 -v devices` when connected to PCB. Learned that the IC is not talking to my debugger
 ```
 [0001:0007:00] 2025/07/03 21:01:35 >  013effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 2025/07/03 21:01:35 <  0118261d000001055500a198536e0b003014000020006100f9ef000018000f44b3e5ebe6c9a0ff6f943944925d7e24cbd1cbf6ebef46ee56807380a821711070
@@ -111,7 +111,7 @@ Installed `nuvoprog2` and ran command: `~/go/bin/nuvoprog2 -v devices` when conn
 | Footer             | Debugger Config/Temp           | 0x37   | 9      | `56807380a821711070` | Unknown, may include sensor/flags  |
 
 ## USB D+ and D- analysis
-When plugging in USB charger ran `dmesg`
+When plugging in USB charger ran `dmesg`. Learned that strange things that are **not** USB enumeration are happening on `D+` a and `D-` pins. 
 ```
 [ 6253.199750] usb 1-9: device descriptor read/64, error -71
 [ 6253.422750] usb 1-9: device descriptor read/64, error -71
