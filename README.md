@@ -74,6 +74,43 @@ Programmable (IAP) means whole APROM can be use as Data Flash
 ## Debugger connection
 Will likely need [NU-LINK-PRO/](https://www.digikey.com/en/products/detail/nuvoton-technology-corporation/NU-LINK-PRO/3065247) to connect/debug 8501 within the CV90331. Hardware has been ordered.
 
+## Debugger initial results.
+```
+| PCB    | Nu-Link-Pro Debugger |
+
+[ ] MCLK -> ICECLK
+[ ] MDAT -> ICEDAT
+[ ] GND  -> GND
+[ ] VCC  -> VDD
+```
+### Output
+Installed `nuvoprog2` and ran command: `~/go/bin/nuvoprog2 -v devices` when connected to PCB
+```
+[0001:0007:00] 2025/07/03 21:01:35 >  013effffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+2025/07/03 21:01:35 <  0118261d000001055500a198536e0b003014000020006100f9ef000018000f44b3e5ebe6c9a0ff6f943944925d7e24cbd1cbf6ebef46ee56807380a821711070
+      Nu-Link-Me - Firmware Version 7462 (Target voltage: 0.011000; USB voltage 5.168000)
+```
+| Section            | Field Name                     | Offset | Length | Raw Value           | Human-Readable Value               |
+|--------------------|---------------------------------|--------|--------|----------------------|------------------------------------|
+| Header             | Packet Type                    | 0x00   | 1      | `01`                 | Response packet                    |
+| Header             | Payload Length?                | 0x01   | 1      | `18`                 | Likely payload size                |
+| Header             | Message ID                     | 0x02   | 1      | `26`                 | Message index or opcode            |
+| Header             | Response Code                  | 0x03   | 1      | `1d`                 | Status indicator                   |
+| Target             | Target ID                      | 0x04   | 4      | `00000105`           | Possibly 0x0105 = MS51 variant?    |
+| Control            | Sync Header                    | 0x08   | 2      | `5500`               | Sync marker                        |
+| Firmware           | Firmware Version               | 0x0A   | 2      | `a198`               | 0x98A1 = **7462**                  |
+| Serial             | Label Marker ("Sn")            | 0x0C   | 2      | `536e`               | ASCII `"Sn"`                       |
+| Serial             | Serial Number Length           | 0x0E   | 1      | `0b`                 | 11 bytes                           |
+| Serial             | Serial Number                  | 0x0F   | 11     | `003014000020006100f9ef` | Device ID / SN                 |
+| Status             | Unknown (reserved or legacy)   | 0x1A   | 4      | `00001800`           | Possibly unused / placeholder      |
+| Voltage            | USB Index?                     | 0x1E   | 1      | `0f`                 | Possibly USB port index            |
+| Voltage            | USB Voltage (float32 LE)       | 0x1F   | 4      | `44b3e5eb`           | **5.168 V**                        |
+| Voltage            | Target Voltage (float32 LE)    | 0x23   | 4      | `e6c9a0ff`           | **0.011 V**                        |
+| Signature          | Hash or Device UUID            | 0x27   | 8      | `6f943944925d7e24`   | Unknown, possibly chip signature   |
+| Result             | Status/Feature Bitmap          | 0x2F   | 8      | `cbd1cbf6ebef46ee`   | Internal status flags              |
+| Footer             | Debugger Config/Temp           | 0x37   | 9      | `56807380a821711070` | Unknown, may include sensor/flags  |
+
+
 ## Sources
 1. [Amazon Prodct Page](https://www.amazon.com/Wireless-Qi-Certified-Charging-Compatible-Qi-Enabled/dp/B079KZ49PJ)
 2. [Yootech Product Page](https://yootech.net/services/)
